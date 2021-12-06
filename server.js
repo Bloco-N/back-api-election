@@ -6,7 +6,6 @@ const server = http.createServer(app);
 const io = require('socket.io')(server);
 
 const registerChatHandlers = require('./handlers/chatHandlers');
-const registerUserHandlers = require('./handlers/userHandlers');
 
 const onConnection = (socket) => {
   try {
