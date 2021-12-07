@@ -16,7 +16,7 @@ const onConnection = (socket) => {
     registerGameHandlers(io, socket);
     registerPlayerHandlers(io, socket);
 
-    socket.on('disconnect', ()=>{
+    socket.on('disconnect', () => {
 
       console.log('disconnectado');
 

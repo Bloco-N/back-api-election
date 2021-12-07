@@ -2,15 +2,13 @@
 
 class Game {
 
-    constructor()
-    {
-        this.players = [];
-    }
+  constructor() {
+    this.players = [];
+  }
 
-    init()
-    {
-        console.log(this.players)
-    }
+  init() {
+    console.log(this.players)
+  }
 
 }
 
