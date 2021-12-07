@@ -3,7 +3,12 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+  cors: {
+    origins: ["http://localhost:3000", "https://chat-socket-io-front.netlify.app"],
+    methods: ["GET", "POST"]
+  }
+});
 
 const registerChatHandlers = require('./handlers/chatHandlers');
 const registerGameHandlers = require('./handlers/gameHandlers');
