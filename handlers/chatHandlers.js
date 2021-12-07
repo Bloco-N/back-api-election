@@ -17,6 +17,16 @@ module.exports = (io, socket) => {
     }
   }
 
+  const getMessages = async () => {
+
+    const result = await db('messages');
+    if (result) {
+      io.emit('chat:get-all-messages', { result });
+    }
+
+  }
+
   socket.on('chat:send-message', sendMessage);
+  socket.on('chat:get-all-messages', getMessages);
 
 }
