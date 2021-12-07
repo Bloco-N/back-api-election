@@ -6,7 +6,7 @@ module.exports = (io, socket) => {
   const sendMessage = async (data) => {
 
     const id = uuidv4();
-    const { content, user_id, type } = data;
+    const { content, user_id } = data;
 
     console.log(`[SOCKET] new message:`);
     console.log(data);
