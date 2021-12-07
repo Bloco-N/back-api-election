@@ -6,12 +6,21 @@ const server = http.createServer(app);
 const io = require('socket.io')(server);
 
 const registerChatHandlers = require('./handlers/chatHandlers');
+const registerGameHandlers = require('./handlers/gameHandlers');
+const registerPlayerHandlers = require('./handlers/playerHandlers');
 
 const onConnection = (socket) => {
   try {
 
     registerChatHandlers(io, socket);
-    registerUserHandlers(io, socket);
+    registerGameHandlers(io, socket);
+    registerPlayerHandlers(io, socket);
+
+    socket.on('disconnect', ()=>{
+
+      console.log('disconnectado');
+
+    })
 
   } catch (error) {
     console.log(error.message);
