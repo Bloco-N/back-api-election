@@ -11,7 +11,7 @@ module.exports = (io, socket) => {
     console.log(`[SOCKET] new message:`);
     console.log(data);
 
-    const result = await db('messages').insert({ id, user_id, content, type });
+    const result = await db('messages').insert({ id, user_id, content});
     if (result.rowCount > 0) {
       io.emit('chat:receive-message', { id, ...data });
     }
